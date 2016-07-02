@@ -1,0 +1,64 @@
+﻿<Window x:Class="Updater.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Updater"
+        mc:Ignorable="d"
+        Title="Minecraft Mod Updater"
+        Height="350"
+        Width="525"
+        ResizeMode="NoResize"
+        Topmost="True"
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid DataContext="{Binding ViewModel}">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/bg-dirt.png"
+                        TileMode="Tile"
+                        Stretch="None"
+                        Viewport="0,0,48,48"
+                        ViewportUnits="Absolute"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ProgressBar Grid.Row="0"
+                     Value="{Binding ProgressValue}"
+                     HorizontalAlignment="Stretch"
+                     Height="10"
+                     Margin="25,25,25,0"
+                     BorderThickness="4"
+                     BorderBrush="Black"
+                     Background="#FF444444"/>
+
+        <TextBlock Grid.Row="1"
+                   Text="{Binding InfoText}"
+                   Foreground="#99FFFFFF"
+                   TextAlignment="Center"/>
+
+        <Button Grid.Row="2"
+                Content="{Binding ButtonText}"
+                IsEnabled="{Binding ButtonEnabled}"
+                Command="{Binding ClickCommand}"
+                MinWidth="300"
+                Margin="25"
+                Padding="28,4"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Stretch"
+                Foreground="White"
+                FontFamily="/Updater;component/Assets/#DPix_8pt"
+                FontSize="16"
+                BorderBrush="Black" BorderThickness="3">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/buttonbg.gif"
+                            TileMode="Tile"
+                            Stretch="None"
+                            Viewport="0,0,30,30"
+                            ViewportUnits="Absolute"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
